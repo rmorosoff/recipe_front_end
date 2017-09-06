@@ -13,6 +13,7 @@
       <th>Recipe Title</th>
       <th>Recipe Description</th>
       <th>Total Recipe Time</th>
+      <th>Action </th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,7 @@
         <td><%= recipe.title %></td>
         <td><%= recipe.description %></td>
         <td><%= recipe.minutes %></td>
+        <td><button class="recipeShow btn-info" data-id="<%= recipe.id %>">View Recipe</button>
       </tr>
     <% }) %>
   <% } %>

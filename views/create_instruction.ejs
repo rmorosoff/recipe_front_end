@@ -1,0 +1,28 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="active">Add Instruction</a>
+  </li>
+</ol>
+
+<br/>
+<%- partial ('partials/statusmessage.ejs') %>
+
+  <h2>Add Instruction for Placeholder</h2>
+  <form action="/create" method="POST" class="form-horizontal" id="addStepForm">
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="foodItem">Recipe Step</label>
+      <div class="col-md-4">
+        <input id="step" name="step" type="text" placeholder="Enter step here" class="form-control input-md" required="">
+        <span class="help-block">Enter descriptive recipe step</span>
+      </div>
+    </div>
+
+
+    <!-- Submit button for form -->
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Add Instruction</button>
+      </div>
+    </div>
+  </form>

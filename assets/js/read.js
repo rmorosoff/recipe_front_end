@@ -47,4 +47,9 @@
 
   })
 
+  //  On Click event will respond to click on "recipeShow" class in recipeTable
+  $("#recipeTable").on("click", ".recipeShow", function() {
+    window.location.href = "/" + $(this).data("id");
+  })
+
 })();

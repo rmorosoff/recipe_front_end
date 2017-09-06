@@ -53,7 +53,6 @@
         },
         description: {
           minlength: "Please enter at least 5 characters"
-        }
         },
         minutes: {
           min: "Recipe must take at least a minute"
