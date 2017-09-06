@@ -61,6 +61,19 @@ module.exports = {
 
   },
 
+  /**
+   * `recipesController.show()`
+   */
+  show: function (req, res) {
+
+    client.get(endpoint + "/" + req.params.id, function (data, response) {
+        return res.view('show', {recipe: data});
+    }).on('error', function (err) {
+        return res.view('show', {error: { message: "There was an error getting the recipe"}});
+    });
+
+  },
+
 
   /**
    * `recipesController.update()`

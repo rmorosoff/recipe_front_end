@@ -43,8 +43,16 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/create':'RecipeController.create',
+  '/:id':'RecipeController.show',
   '/'      :'RecipeController.read',
   '/update':'RecipeController.update',
-  '/delete':'RecipeController.delete'
+  '/delete':'RecipeController.delete',
+  '/:id/ingredients/create' : 'IngredientController.create',
+  '/:id/ingredients/delete' : 'IngredientController.delete',
+  '/:id/ingredients/' : 'IngredientController.read',
+  '/:id/instructions/create' : 'InstructionController.create',
+  '/:id/instructions/delete' : 'InstructionController.delete',
+  '/:id/instructions/' : 'InstructionController.read'
+
 
 };
