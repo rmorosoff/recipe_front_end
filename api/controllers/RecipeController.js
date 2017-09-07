@@ -67,6 +67,16 @@ module.exports = {
   show: function(req, res) {
 
     client.get(endpoint + "/" + req.params.id, function(data, response) {
+      if (data.instructions) {
+        data.instructions.sort(function(a, b){
+          return a.id - b.id;
+        })
+      }
+      if (data.ingredients) {
+        data.ingredients.sort(function(a, b){
+          return a.id - b.id;
+        })
+      }
       return res.view('show', {
         recipe: data
       });
@@ -159,7 +169,7 @@ module.exports = {
 
     } else {
 
-      client.delete(endpoint + "/" + req.body.id, function(data, response) {
+      client.delete(endpoint + "/" + req.body.recipe_id, function(data, response) {
 
         if (response.statusCode != "200") {
           req.addFlash("error", data.message);
