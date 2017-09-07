@@ -8,19 +8,21 @@
 
 <div class="recipeHeader">
   <p>
-    <%= recipe.title %>
+    <h2>Dish:   <%= recipe.title %></h2>
   </p>
   <p>
-    <%= recipe.description %>
+    <h2>Description:   <%= recipe.description %></h2>
   </p>
   <p>
-    <%= recipe.minutes %> minutes
+    <h2>Preparation:   <%= recipe.minutes %> minutes</h2>
   </p>
 
 </div>
 
+<br />
+<br />
 <div>
-  <h2>Ingredients</h2>
+  <h3>Ingredients  <button class="add-ingredient btn-success" data-id="<%= recipe.id %>">Add</button></h3>
   <table class="table table-striped table-bordered" id="ingredientsTable" style="width:100%">
     <thead>
       <tr>
@@ -37,16 +39,17 @@
           <td><%= ingredient.foodItem %></td>
           <td><%= ingredient.quantity %></td>
           <td><%= ingredient.unitOfMeasure %></td>
-          <td><button class="ingredientDelete btn-info" data-id="<%= recipe.ingredient.id %>">Delete</button>
+          <td><button class="delete-ingredient btn-danger" data-id="<%= ingredient.ing_id %>">Delete</button>
         </tr>
       <% }) %>
     <% } %>
     </tbody>
   </table>
 </div>
-
+<br />
+<br />
 <div>
-  <h2>Recipe Steps</h2>
+  <h3>Recipe Steps  <button class="add-instruction btn-success" data-id="<%= recipe.id %>">Add</button></h3>
   <table class="table table-striped table-bordered" id="stepsTable" style="width:100%">
     <thead>
       <tr>
@@ -59,7 +62,7 @@
       <% recipe.instructions.forEach(function(instruction){ %>
         <tr>
           <td><%= instruction.step %></td>
-          <td><button class="instructionDelete btn-info" data-id="<%= recipe.instruction.id %>">Delete</button>
+          <td><button class="delete-instruction btn-danger" data-id="<%= instruction.ins_id %>">Delete</button>
         </tr>
       <% }) %>
     <% } %>
