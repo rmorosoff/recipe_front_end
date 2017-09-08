@@ -46,14 +46,14 @@ module.exports.routes = {
   '/'      :'RecipeController.read',
   '/update':'RecipeController.update',
   '/delete':'RecipeController.delete',
-  '/:id':'RecipeController.show',
   '/:id/passiveread':'RecipeController.passiveread',
   '/:id/ingredients/create' : 'IngredientController.create',
-  '/:id/ingredients/delete' : 'IngredientController.delete',
   '/:id/ingredients/' : 'IngredientController.read',
+  '/:id/ingredients/:ingid/delete' : 'IngredientController.delete',
   '/:id/instructions/create' : 'InstructionController.create',
-  '/:id/instructions/delete' : 'InstructionController.delete',
-  '/:id/instructions/' : 'InstructionController.read'
+  '/:id/instructions/:insid/delete' : 'InstructionController.delete',
+  '/:id/instructions/' : 'InstructionController.read',
+  '/:id':'RecipeController.show'
 
 
 };

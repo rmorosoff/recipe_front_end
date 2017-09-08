@@ -97,28 +97,17 @@ module.exports = {
    */
   delete: function (req, res) {
 
-    if(req.method != "POST"){
-
-      client.get(endpoint, function (data, response) {
-        return res.view('delete_ingredient', {recipes: data});
-      }).on('error', function (err) {
-          return res.view('delete_ingredient', {error: { message: "There was an error getting the recipes"}});
-      });
-
-    }else{
-
-      client.delete(endpoint + "/" + req.body.recipe_id + "/ingredients/" + req.body.ingredient_id, function (data, response) {
+      client.delete(endpoint + "/" + req.params.id + "/ingredients/" + req.params.ingid, function (data, response) {
 
         if(response.statusCode != "200"){
             req.addFlash("error", data.message);
-            return res.redirect('/{id}/instructions/delete');
+            return res.redirect(`/${req.params.id}/passiveread`);
         }
 
         req.addFlash("success", "Record deleted successfully");
-        return res.redirect('/{id}/instructions/delete');
+        return res.redirect(`/${req.params.id}`);
 
       })
-    }
 
   }
 

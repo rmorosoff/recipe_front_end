@@ -94,31 +94,20 @@ module.exports = {
   /**
    * `recipesController.delete()`
    */
-  delete: function (req, res) {
+   delete: function (req, res) {
 
-    if(req.method != "POST"){
+       client.delete(endpoint + "/" + req.params.id + "/instructions/" + req.params.insid, function (data, response) {
 
-      client.get(endpoint, function (data, response) {
-        return res.view('delete_instruction', {recipes: data});
-      }).on('error', function (err) {
-          return res.view('delete_instruction', {error: { message: "There was an error getting the recipes"}});
-      });
+         if(response.statusCode != "200"){
+             req.addFlash("error", data.message);
+             return res.redirect(`/${req.params.id}/passiveread`);
+         }
 
-    }else{
+         req.addFlash("success", "Record deleted successfully");
+         return res.redirect(`/${req.params.id}`);
 
-      client.delete(endpoint + "/" + req.body.recipe_id + "/instructions/" + req.body.instruction_id, function (data, response) {
+       })
 
-        if(response.statusCode != "200"){
-            req.addFlash("error", data.message);
-            return res.redirect('/{id}/instructions/delete');
-        }
-
-        req.addFlash("success", "Record deleted successfully");
-        return res.redirect('/{id}/instructions/delete');
-
-      })
-    }
-
-  }
+   }
 
 };

@@ -34,7 +34,7 @@
 
   $(function() {
 
-    console.log("Here in show.js")
+    //console.log("Here in show.js")
 
     //  On Click event will respond to click on "add-ingredient" class in recipeTable
     $("body").on("click", ".add-ingredient", function() {
@@ -46,6 +46,18 @@
     $("body").on("click", ".add-instruction", function() {
       window.location.href = "/" + $(this).data("id") + "/instructions/create";
       //alert($(this).data("id"));
+    })
+
+    //  On Click event will respond to click on "delete-ingredient" class in recipeTable
+    $("body").on("click", ".delete-ingredient", function() {
+      //alert("Recipe ID is: " + $(this).data("id") + " and the ingredient ID is: " + $(this).data("ingid"));
+      window.location.href = "/" + $(this).data("id") + "/ingredients/" + $(this).data("ingid") + "/delete";
+    })
+
+    //  On Click event will respond to click on "delete-instruction" class in recipeTable
+    $("body").on("click", ".delete-instruction", function() {
+      //alert("Recipe ID is: " + $(this).data("id") + " and the instruction ID is: " + $(this).data("insid"));
+      window.location.href = "/" + $(this).data("id") + "/instructions/" + $(this).data("insid") + "/delete";
     })
 
   })

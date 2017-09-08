@@ -39,7 +39,7 @@
           <td><%= ingredient.foodItem %></td>
           <td><%= ingredient.quantity %></td>
           <td><%= ingredient.unitOfMeasure %></td>
-          <td><button class="delete-ingredient btn-danger" data-id="<%= ingredient.ing_id %>">Delete</button>
+          <td><button class="delete-ingredient btn-danger" data-id="<%= recipe.id %>" data-ingid="<%= ingredient.id %>">Delete</button>
         </tr>
       <% }) %>
     <% } %>
@@ -62,7 +62,7 @@
       <% recipe.instructions.forEach(function(instruction){ %>
         <tr>
           <td><%= instruction.step %></td>
-          <td><button class="delete-instruction btn-danger" data-id="<%= instruction.ins_id %>">Delete</button>
+          <td><button class="delete-instruction btn-danger" data-id="<%= recipe.id %>" data-insid="<%= instruction.id %>">Delete</button>
         </tr>
       <% }) %>
     <% } %>
