@@ -62,7 +62,7 @@
       <% recipe.instructions.forEach(function(instruction){ %>
         <tr>
           <td><%= instruction.step %></td>
-          <td><button class="delete-instruction btn-danger" data-id="<%= recipe.id %>" data-insid="<%= instruction.id %>">Delete</button>
+          <td style="width:105px"><button class="delete-instruction btn-danger" data-id="<%= recipe.id %>" data-insid="<%= instruction.id %>">Delete</button>
         </tr>
       <% }) %>
     <% } %>
