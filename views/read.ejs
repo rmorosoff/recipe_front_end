@@ -3,9 +3,7 @@
 </ol>
 
 <br/>
-<div>
-  background-image: url("/images/breakfast_landscape.jpg");
-</div>
+
 <%- partial ('partials/statusmessage.ejs') %>
 
 <h2>Recipes</h2>
@@ -25,7 +23,7 @@
         <td><%= recipe.title %></td>
         <td><%= recipe.description %></td>
         <td><%= recipe.minutes %></td>
-        <td><button class="recipeShow btn-info" data-id="<%= recipe.id %>">Details</button>
+        <td><button class="recipeShow btn-info" class="recipeShow btn-info" data-id="<%= recipe.id %>">Details</button>
       </tr>
     <% }) %>
   <% } %>

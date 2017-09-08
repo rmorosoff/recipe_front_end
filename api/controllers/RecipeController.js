@@ -17,11 +17,8 @@ module.exports = {
   create: function(req, res) {
 
     if (req.method != "POST") {
-<<<<<<< HEAD
-      return res.view('create');
-=======
+
         return res.view('create');
->>>>>>> master
     }
 
     var args = {
@@ -33,11 +30,9 @@ module.exports = {
 
     client.post(endpoint, args, function(data, response) {
       // return res.view('create', {success: { message: "Record added successfully"}});
-<<<<<<< HEAD
-      if (response.statusCode != "201") {
-=======
+
       if (response.statusCode != "200") {
->>>>>>> master
+
         req.addFlash("error", data.message.substring(data.message.indexOf("•")));
         return res.redirect('/create');
       }
