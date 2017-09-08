@@ -60,6 +60,12 @@
       window.location.href = "/" + $(this).data("id") + "/instructions/" + $(this).data("insid") + "/delete";
     })
 
+    //  On Click event will respond to click on "add-instruction" class in recipeTable
+    $("body").on("click", ".return-show", function() {
+      window.location.href = "/" + $(this).data("id");
+      //alert($(this).data("id"));
+    })
+
   })
 
 
