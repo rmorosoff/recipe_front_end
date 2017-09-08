@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
     <li><a href="/">Home</a></li>
-    <li class="active">Edit Dog</a></li>
+    <li class="active">Edit Recipe</a></li>
 </ol>
 
 <br/>
@@ -8,12 +8,12 @@
 
 <form action="#" method="">
   <div class="form-group">
-    <label for="dog_id">SELECT A DOG TO UPDATE</label><br/>
-    <select id="dog_id" name="dog_id">
-    <% if(typeof dogs != "undefined" && dogs.length > 0){ %>
-      <% dogs.forEach(function(dog){ %>
-        <option value="<%= dog.id %>">
-          <%= dog.dogName + "  " +  dog.ownerLastName %>
+    <label for="recipe_id">SELECT A RECIPE TO UPDATE</label><br/>
+    <select id="recipe_id" name="recipe_id">
+    <% if(typeof recipes != "undefined" && recipes.length > 0){ %>
+      <% recipes.forEach(function(recipe){ %>
+        <option value="<%= recipe.id %>">
+          <%= recipe.title %>
         </option>
       <% }) %>
     <% } %>
@@ -21,75 +21,40 @@
   </div>
 </form>
 
-<h2>Update Dog</h2>
-<form action="/update" method="POST" class="form-horizontal" id="updateDogForm">
-  <input type="hidden" name="id" id="dog_id" value="">
+<h2>Update Recipe</h2>
+<form action="/update" method="POST" class="form-horizontal" id="updateRecipeForm">
+  <input type="hidden" name="id" id="recipe_id" value="">
   <!-- Text input-->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="dogName">Dog Name</label>
+    <label class="col-md-4 control-label" for="title">Recipe Title</label>
     <div class="col-md-4">
-      <input id="dogName" name="dogName" type="text" placeholder="Doggie" class="form-control input-md" required="">
-      <span class="help-block">Enter the dog's name</span>
+      <input id="title" name="title" type="text" placeholder="Your title here" class="form-control input-md" required="">
+      <span class="help-block">Enter the recipe's title</span>
     </div>
   </div>
 
   <!-- Text input-->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="ownerFirstName">Owner First Name</label>
+    <label class="col-md-4 control-label" for="description">Recipe Description</label>
     <div class="col-md-4">
-      <input id="ownerFirstName" name="ownerFirstName" type="text" placeholder="First Name" class="form-control input-md" required="">
-      <span class="help-block">Enter owner's first name</span>
+      <input id="description" name="description" type="text" placeholder="Recipe description here" class="form-control input-md" required="">
+      <span class="help-block">Enter recipe's description</span>
     </div>
   </div>
 
   <!-- Text input-->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="ownerLastName">Owner Last Name</label>
+    <label class="col-md-4 control-label" for="minutes">Recipe Time (min)</label>
     <div class="col-md-4">
-      <input id="ownerLastName" name="ownerLastName" type="text" placeholder="Last Name" class="form-control input-md" required="">
-      <span class="help-block">Enter owner's last name</span>
+      <input id="minutes" name="minutes" type="text" placeholder="Time in minutes" class="form-control input-md" required="">
+      <span class="help-block">Enter recipe time in minutes</span>
     </div>
   </div>
 
-  <!-- Text input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="ownerEmail">Owner Email</label>
-    <div class="col-md-4">
-      <input id="ownerEmail" name="ownerEmail" type="text" placeholder="xxxx@xxxxx.xxx" class="form-control input-md" required="">
-      <span class="help-block">Enter owner</span>
-    </div>
-  </div>
-
-  <!-- Text input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="dogBreed">Breed</label>
-    <div class="col-md-4">
-      <input id="dogBreed" name="dogBreed" type="text" placeholder="Breed or Mix" class="form-control input-md">
-      <span class="help-block">Enter breed of dog</span>
-    </div>
-  </div>
-
-  <!-- Text input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="dogBirthYear">Dog Birth Year</label>
-    <div class="col-md-4">
-      <input id="dogBirthYear" name="dogBirthYear" type="text" placeholder="YYYY" class="form-control input-md" required="">
-      <span class="help-block">Enter year dog was born (YYYY)</span>
-    </div>
-  </div>
-
-  <!-- Text input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="dogGender">Dog Gender</label>
-    <div class="col-md-4">
-      <input id="dogGender" name="dogGender" type="text" placeholder="male or female" class="form-control input-md" required="">
-      <span class="help-block">Enter gender of dog</span>
-    </div>
-  </div>
-
+  <!-- Submit button for form -->
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Update Dog</button>
+      <button type="submit" class="btn btn-default">Update Recipe</button>
     </div>
   </div>
 </form>
