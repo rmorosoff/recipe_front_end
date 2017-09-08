@@ -8,13 +8,15 @@
 <%- partial ('partials/statusmessage.ejs') %>
 
   <h2>Add Recipe</h2>
+  <br>
+  <br>
   <form action="/create" method="POST" class="form-horizontal" id="addRecipeForm">
     <!-- Text input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="title">Recipe Title</label>
       <div class="col-md-4">
         <input id="title" name="title" type="text" placeholder="Enter the recipe's title" class="form-control input-md" required="">
-      
+
       </div>
     </div>
 
@@ -38,8 +40,9 @@
 
     <!-- Submit button for form -->
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="recipeShow btn btn-info">Add Recipe</button>
+      <div id="btn_center" class="col-sm-offset-2 col-sm-10">
+        <button id="button_show" "type="submit" class="recipeShow btn btn-info">Add Recipe</button>
       </div>
     </div>
+        <br>
   </form>

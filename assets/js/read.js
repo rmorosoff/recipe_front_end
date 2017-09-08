@@ -39,9 +39,7 @@
         dom: 'Bfrtip',
         colReorder: true,
         "scrollX": true,
-        buttons: [
-          'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
+
       });
     });
 

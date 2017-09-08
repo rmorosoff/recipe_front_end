@@ -1,6 +1,6 @@
 body {
     padding-top: 70px;
-
+background-color: black;
 }
 /* Customize container */
 @media (min-width: 600px) {
@@ -17,4 +17,11 @@ body {
 }
 h2  {
   color: #006666;
+}
+#button_show  {
+  align-items: center;
+}
+#btn_center {
+  display: flex;
+  justify-content: right;
 }
