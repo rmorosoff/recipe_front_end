@@ -11,6 +11,7 @@
   <div class="form-group">
     <label for="recipe_id">SELECT A RECIPE TO UPDATE</label><br/>
     <select id="recipe_id" name="recipe_id">
+
     <% if(typeof recipes != "undefined" && recipes.length > 0){ %>
       <% recipes.forEach(function(recipe){ %>
         <option value="<%= recipe.id %>">
@@ -29,7 +30,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="title">Recipe Title</label>
     <div class="col-md-4">
-      <input id="title" name="title" type="text" placeholder="Your title here" class="form-control input-md" required="">
+      <input id="title" name="title" type="text" placeholder="Enter the recipe's title" class="form-control input-md" required="">
       <span class="help-block">Enter the recipe's title</span>
     </div>
   </div>
