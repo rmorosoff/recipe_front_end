@@ -7,8 +7,8 @@
 <br/>
 <%- partial ('partials/statusmessage.ejs') %>
 
-  <h2>Add Instruction for Placeholder</h2>
-  <form action="/create" method="POST" class="form-horizontal" id="addStepForm">
+  <h2>Add Instruction for: <%= recipe.title %></h2>
+  <form action="/<%= recipe.id %>/instructions/create" method="POST" class="form-horizontal" id="addStepForm">
     <!-- Text input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="foodItem">Recipe Step</label>

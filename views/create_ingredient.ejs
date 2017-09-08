@@ -7,8 +7,8 @@
 <br/>
 <%- partial ('partials/statusmessage.ejs') %>
 
-  <h2>Add Ingredient for Placeholder</h2>
-  <form action="/create" method="POST" class="form-horizontal" id="addIngredientForm">
+  <h2>Add Ingredient for: <%= recipe.title %></h2>
+  <form action="/<%= recipe.id %>/ingredients/create" method="POST" class="form-horizontal" id="addIngredientForm">
     <!-- Text input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="foodItem">Ingredient Item</label>
@@ -20,7 +20,7 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="unitOfMeasure">Owner First Name</label>
+      <label class="col-md-4 control-label" for="unitOfMeasure">Unit of measure</label>
       <div class="col-md-4">
         <input id="unitOfMeasure" name="unitOfMeasure" type="text" placeholder="Unit of measure here" class="form-control input-md" required="">
         <span class="help-block">Enter unit of measure</span>

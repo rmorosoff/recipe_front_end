@@ -17,7 +17,11 @@ module.exports = {
   create: function(req, res) {
 
     if (req.method != "POST") {
+<<<<<<< HEAD
       return res.view('create');
+=======
+        return res.view('create');
+>>>>>>> master
     }
 
     var args = {
@@ -29,7 +33,11 @@ module.exports = {
 
     client.post(endpoint, args, function(data, response) {
       // return res.view('create', {success: { message: "Record added successfully"}});
+<<<<<<< HEAD
       if (response.statusCode != "201") {
+=======
+      if (response.statusCode != "200") {
+>>>>>>> master
         req.addFlash("error", data.message.substring(data.message.indexOf("•")));
         return res.redirect('/create');
       }
@@ -64,25 +72,42 @@ module.exports = {
   /**
    * `recipesController.show()`
    */
-  show: function (req, res) {
+  show: function(req, res) {
 
-    client.get(endpoint + "/" + req.params.id, function (data, response) {
-        return res.view('show', {recipe: data});
-    }).on('error', function (err) {
-        return res.view('show', {error: { message: "There was an error getting the recipe"}});
+    client.get(endpoint + "/" + req.params.id, function(data, response) {
+      if (data.instructions) {
+        data.instructions.sort(function(a, b){
+          return a.id - b.id;
+        })
+      }
+      if (data.ingredients) {
+        data.ingredients.sort(function(a, b){
+          return a.id - b.id;
+        })
+      }
+      return res.view('show', {
+        recipe: data
+      });
+    }).on('error', function(err) {
+      return res.view('show', {
+        error: {
+          message: "There was an error getting the recipe"
+        }
+      });
     });
 
   },
 
-  /**
-   * `recipesController.show()`
-   */
-  show: function (req, res) {
+  passiveread: function(req, res) {
 
-    client.get(endpoint + "/" + req.params.id, function (data, response) {
-        return res.view('show', {recipe: data});
-    }).on('error', function (err) {
-        return res.view('show', {error: { message: "There was an error getting the recipe"}});
+    client.get(endpoint + "/" + req.params.id, function(data, response) {
+      return res.send(data);
+    }).on('error', function(err) {
+      return res.send({
+        error: {
+          message: "There was an error getting the recipe"
+        }
+      });
     });
 
   },

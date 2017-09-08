@@ -7,7 +7,7 @@
 
 var Client = require('node-rest-client').Client;
 var client = new Client();
-var endpoint = "http://localhost:1337/recipe";
+var endpoint = "https://pure-waters-78967.herokuapp.com/api/recipes";
 
 module.exports = {
 
@@ -17,7 +17,9 @@ module.exports = {
   create: function (req, res) {
 
         if(req.method != "POST"){
-          return res.view('create_instruction');
+          return client.get(endpoint + "/" + req.params.id, function (data, response) {
+              res.view('create_instruction', {recipe: data});
+          })
         }
 
         var args = {
@@ -25,15 +27,15 @@ module.exports = {
             headers: { "Content-Type": "application/json" }
         };
 
-        client.post(endpoint, args, function (data, response) {
+        client.post(endpoint + "/" + req.params.id + "/instructions", args, function (data, response) {
             // return res.view('create', {success: { message: "Record added successfully"}});
-            if(response.statusCode != "201"){
+            if(response.statusCode != "200"){
                 req.addFlash("error", data.message.substring(data.message.indexOf("•")));
-                return res.redirect('/{id}/instructions/create');
+                return res.redirect(`/${req.params.id}/instructions/create`);
             }
 
             req.addFlash("success", "Record created successfully");
-            return res.redirect('/{id}/instructions/create');
+            return res.redirect(`/${req.params.id}/instructions/create`);
 
         })
 
