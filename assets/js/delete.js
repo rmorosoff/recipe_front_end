@@ -32,7 +32,7 @@
   $(function() {
 
     $('#recipe_id').selectpicker({
-      style: 'btn-info',
+      //style: 'btn-info',
       size: 4,
       liveSearch : true,
       tickIcon : 'glyphicon-user',
